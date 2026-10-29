@@ -15,6 +15,11 @@ export const leaderboardAbi = parseAbi([
   'function getPlayerStatus(uint32 day, address player) view returns (uint32 classicBestScore, bool dailyDone, uint32 dailyScore)',
 ])
 
+const EXPLORER_URL = (arcTestnet.blockExplorers?.default.url ?? 'https://explorer.testnet.arc.io').replace(/\/+$/, '')
+
+export const explorerAddressUrl = (address: string) => `${EXPLORER_URL}/address/${address}`
+export const explorerTxUrl = (hash: string) => `${EXPLORER_URL}/tx/${hash}`
+
 export const shortAddress = (addr: string) => `${addr.slice(0, 6)}...${addr.slice(-4)}`
 
 /** Map wallet / RPC errors to short, actionable copy. Returns null for a user cancel. */

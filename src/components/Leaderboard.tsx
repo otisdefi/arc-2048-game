@@ -1,8 +1,7 @@
 import { useAccount, useReadContract } from 'wagmi'
 import { ExternalLink, Trophy } from 'lucide-react'
 import type { Mode } from '@/game/engine'
-import { LEADERBOARD_ADDRESS, LEADERBOARD_CHAIN_ID, leaderboardAbi, shortAddress } from '@/lib/leaderboard'
-import { buildAddressExplorerUrl } from '@/onchain-facts'
+import { LEADERBOARD_ADDRESS, LEADERBOARD_CHAIN_ID, explorerAddressUrl, leaderboardAbi, shortAddress } from '@/lib/leaderboard'
 
 interface LeaderboardProps {
   mode: Mode
@@ -78,7 +77,7 @@ export function Leaderboard({ mode, day }: LeaderboardProps) {
                   {i + 1}
                 </span>
                 <a
-                  href={buildAddressExplorerUrl(LEADERBOARD_CHAIN_ID, row.player)}
+                  href={explorerAddressUrl(row.player)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mono flex flex-1 items-center gap-1.5 text-xs hover:underline"

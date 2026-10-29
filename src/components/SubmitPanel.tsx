@@ -5,8 +5,7 @@ import { ConnectKitButton } from 'connectkit'
 import { toast } from 'sonner'
 import { Check, ExternalLink, Loader2 } from 'lucide-react'
 import type { GameState } from '@/game/engine'
-import { LEADERBOARD_ADDRESS, LEADERBOARD_CHAIN_ID, leaderboardAbi, parseSubmitError } from '@/lib/leaderboard'
-import { buildTxExplorerUrl } from '@/onchain-facts'
+import { LEADERBOARD_ADDRESS, LEADERBOARD_CHAIN_ID, explorerTxUrl, leaderboardAbi, parseSubmitError } from '@/lib/leaderboard'
 
 const primaryBtn =
   'flex min-h-12 w-full items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold text-white transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50'
@@ -140,7 +139,7 @@ export function SubmitPanel({ game }: { game: GameState }) {
 
         {hash && (
           <a
-            href={buildTxExplorerUrl(LEADERBOARD_CHAIN_ID, hash)}
+            href={explorerTxUrl(hash)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex min-h-11 items-center gap-1.5 text-xs font-medium hover:underline"
