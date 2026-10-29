@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+cache/
+out/
+
+# Secrets and credentials (never commit)
+.env
+.env.*
+!.env.example
+.circle/
+recovery_file*
+*.pem
+*.key
+*.keystore
+
+# Runtime logs and traces
+*.log
+console.jsonl
+traces.jsonl
+
+# Editor and OS files
+.DS_Store
+.vscode/
+.idea/
